@@ -24,8 +24,7 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
  */
 package org.clb.mybatisTest.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
+
 import lombok.Data;
 
 import java.io.Serializable;
@@ -45,30 +44,30 @@ public class BaseEntity implements Serializable {
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT)
+//    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     /**
      * 创建人
      */
-    @TableField(fill = FieldFill.INSERT)
+//    @TableField(fill = FieldFill.INSERT)
     private Long createUser;
 
     /**
      * 更新时间
      */
-    @TableField(fill = FieldFill.UPDATE)
+//    @TableField(fill = FieldFill.UPDATE)
     private Date updateTime;
 
     /**
      * 更新人
      */
-    @TableField(fill = FieldFill.UPDATE)
+//    @TableField(fill = FieldFill.UPDATE)
     private Long updateUser;
 
     /**
      * 保存标志位
      */
-    @TableField(exist = false)
+//    @TableField(exist = false)
     private Integer persistentState = 0;
 }

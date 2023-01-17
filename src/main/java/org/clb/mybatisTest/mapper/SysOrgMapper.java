@@ -25,7 +25,6 @@ Snowy采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意
 package org.clb.mybatisTest.mapper;
 
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.clb.mybatisTest.entity.SysOrg;
 
@@ -37,7 +36,7 @@ import java.util.List;
  * @author xuyuxiang
  * @date 2020/3/13 16:03
  */
-public interface SysOrgMapper extends BaseMapper<SysOrg> {
+public interface SysOrgMapper {
 
 
     List<SysOrg> selectAllList();

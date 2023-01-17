@@ -1,7 +1,7 @@
 
 package org.clb.mybatisTest.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,13 +18,13 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("sys_org")
+//@TableName("sys_org")
 public class SysOrg extends BaseEntity {
 
     /**
      * 主键
      */
-    @TableId(type = IdType.ASSIGN_ID)
+//    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
@@ -302,7 +302,7 @@ public class SysOrg extends BaseEntity {
     /**
      * 序号
      */
-    @TableField(exist = false)
+//    @TableField(exist = false)
     private Integer seq;
 
     /**
@@ -373,7 +373,7 @@ public class SysOrg extends BaseEntity {
     /**
      * 启账日期
      */
-    @TableField(exist = false)
+//    @TableField(exist = false)
     private Date initTime;
 
 
