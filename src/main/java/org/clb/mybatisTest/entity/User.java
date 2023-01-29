@@ -11,7 +11,7 @@ public class User {
 
     private String age;
 
-    private SexEnum sex;
+//    private SexEnum sex;
 
     private String sexName;
 }

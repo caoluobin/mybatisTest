@@ -5,9 +5,12 @@
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="age" property="age"/>
-        <result column="sex" property="sex" typeHandler="org.clb.mybatisTest.config.handler.MySexEnumTypeHandler"/>
+<!--        <result column="sex" property="sex" typeHandler="org.clb.mybatisTest.config.handler.MySexEnumTypeHandler"/>-->
         <result column="sex" property="sexName" typeHandler="org.clb.mybatisTest.config.handler.MySexTypeHandler"/>
     </resultMap>
+    <insert id="insertUser">
+        insert into user (id,name,age,sex) VALUES (#{id},#{name},#{age},#{sexName,typeHandler=org.clb.mybatisTest.config.handler.MySexTypeHandler});
+    </insert>
     <select id="selectAllList" resultMap="userMapper">
         select * from user;
     </select>

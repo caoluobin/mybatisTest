@@ -1,7 +1,8 @@
 package org.clb.mybatisTest.enums;
 
 public enum SexEnum {
-    MAN(1,"男");
+    MAN(0,"男"),
+    WOMAN(1,"女");
     private Integer value;
     private String name;
 
@@ -17,7 +18,14 @@ public enum SexEnum {
         }
         return SexEnum.MAN;
     }
-
+    public static SexEnum  findSexEnumByName(String name) {
+        for (SexEnum sexEnum : SexEnum.values()) {
+            if (sexEnum.name.equals(name)) {
+                return sexEnum;
+            }
+        }
+        return SexEnum.MAN;
+    }
     public Integer getValue() {
         return value;
     }
