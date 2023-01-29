@@ -14,6 +14,7 @@ import java.sql.SQLException;
 public class MySexTypeHandler  extends BaseTypeHandler<String> {
     @Override
     public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException {
+        //入参设置
         SexEnum sexEnum = SexEnum.findSexEnumByName(parameter);
         ps.setInt(i, sexEnum.getValue());
     }
