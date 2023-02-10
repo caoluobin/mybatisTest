@@ -34,4 +34,9 @@ public class TestController {
         userService.insertUser(user);
         return "插入成功";
     }
+
+    @GetMapping("/userCursor")
+    public List<User> userCursor() {
+        return userService.userCursor();
+    }
 }

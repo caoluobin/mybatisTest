@@ -2,11 +2,16 @@
 server:
   port: 9133
   max-http-header-size: 1024
+  tomcat:
+    max-threads: 800 #最大工作线程数量
+    min-spare-threads: 20 #最小工作线程数量
+    max-connections: 1000 #一瞬间最大支持的并发的连接数
+    accept-count: 200 #等待队列长度
 spring:
   profiles:
     active: dev
   application:
-    name: newgrand-main-app-cs-ydx
+    name: newgrand-main-app
   datasource:
     #driver-class-name: com.mysql.cj.jdbc.Driver
     #url: jdbc:mysql://127.0.0.1:8067/ghc_dev?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT&nullCatalogMeansCurrent=true
@@ -28,3 +33,12 @@ mybatis:
 #  mapper-locations: classpath:org.clb.mybatisTest.mapper/*:xml
   type-aliases-package: org.clb.mybatisTest.entity
   config-location: classpath:mybatis/mybatis-config.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    org.clb.mybatisTest.mapper: DEBUG
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#
