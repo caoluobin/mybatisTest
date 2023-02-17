@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class TestController {
@@ -38,5 +41,28 @@ public class TestController {
     @GetMapping("/userCursor")
     public List<User> userCursor() {
         return userService.userCursor();
+    }
+    private ExecutorService executorService = Executors.newFixedThreadPool(3);
+    @GetMapping("/t")
+    public String t() throws InterruptedException {
+        String name = "cc";
+        try {
+            executorService.submit(()->{
+                try {
+                    TimeUnit.SECONDS.sleep(3);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println(name);
+                throw new Exception("ssss");
+            });
+            TimeUnit.SECONDS.sleep(4);
+            System.out.println("gggg");
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw e;
+        }
+
+        return "ccc";
     }
 }

@@ -13,5 +13,5 @@ public interface UserMapper {
     void insertUser(User user);
 
 
-    Cursor<User> selectUserList(RowBounds rowBounds);
+    Cursor<User> selectUserList();
 }
