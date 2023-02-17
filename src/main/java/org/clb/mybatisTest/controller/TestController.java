@@ -2,6 +2,7 @@ package org.clb.mybatisTest.controller;
 
 import org.clb.mybatisTest.entity.SysOrg;
 import org.clb.mybatisTest.entity.User;
+import org.clb.mybatisTest.service.AcService;
 import org.clb.mybatisTest.service.SysOrgService;
 import org.clb.mybatisTest.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,11 @@ public class TestController {
     SysOrgService sysOrgService;
     @Resource
     UserService userService;
+
+    @Resource(name = "AaAbstractAcServiceImpl")
+    AcService aaAbstractAcService;
+    @Resource(name = "DdAbstractAcServiceImpl")
+    AcService ddAbstractAcService;
     @GetMapping("/aa")
     public List<SysOrg> test() {
 
@@ -63,6 +69,13 @@ public class TestController {
             throw e;
         }
 
+        return "ccc";
+    }
+
+    @GetMapping("/c")
+    public String c() throws InterruptedException {
+        aaAbstractAcService.run();
+        ddAbstractAcService.run();
         return "ccc";
     }
 }
