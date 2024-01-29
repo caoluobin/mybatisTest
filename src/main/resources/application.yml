@@ -8,6 +8,8 @@ server:
     max-connections: 1000 #一瞬间最大支持的并发的连接数
     accept-count: 200 #等待队列长度
 spring:
+  main:
+    allow-circular-references: true
   profiles:
     active: dev
   application:
@@ -26,6 +28,13 @@ spring:
     password:
     type: com.alibaba.druid.pool.DruidDataSource
 #    typeAlis: org.clb.mybatisTest.entity
+  elasticsearch:
+    rest:
+      uris: 127.0.0.1:9200               #---ES的连接地址，多个地址用逗号分隔
+      username:                          #---用户名
+      password:                          #---密码
+      connection-timeout: 1000           #---连接超时时间(默认1s)
+      read-timeout: 1000                 #---读取超时时间(默认30s)
 #mybatis-plus:
 #  config-location: classpath:mybatis/mybatis-config.xml
 #  type-aliases-package: org.clb.mybatisTest.entity

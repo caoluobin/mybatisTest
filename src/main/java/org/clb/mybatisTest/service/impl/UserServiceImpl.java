@@ -3,8 +3,12 @@ package org.clb.mybatisTest.service.impl;
 import org.apache.ibatis.cursor.Cursor;
 import org.apache.ibatis.session.RowBounds;
 import org.clb.mybatisTest.entity.User;
+import org.clb.mybatisTest.exception.BusinessException;
 import org.clb.mybatisTest.mapper.UserMapper;
+import org.clb.mybatisTest.service.CircleService;
+import org.clb.mybatisTest.service.SysOrgService;
 import org.clb.mybatisTest.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +23,10 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserMapper userMapper;
+    @Autowired
+    private CircleService circleService;
 
+    private String MD_UPLOAD_NAME_LEN;
     public static LongAdder longAdder = new LongAdder();
     @Override
     public List<User> list() {
@@ -37,6 +44,9 @@ public class UserServiceImpl implements UserService {
         for (int i = 0; i < 100000; i++) {
             user.setId(Long.parseLong(i+""));
             userMapper.insertUser(user);
+        }
+        if ("".equals(user.getName())) {
+            throw new BusinessException("333",Integer.parseInt(MD_UPLOAD_NAME_LEN));
         }
     }
 

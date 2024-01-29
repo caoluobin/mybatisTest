@@ -5,6 +5,7 @@ import org.clb.mybatisTest.entity.User;
 import org.clb.mybatisTest.service.AcService;
 import org.clb.mybatisTest.service.SysOrgService;
 import org.clb.mybatisTest.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,6 +39,9 @@ public class TestController {
         return userService.list();
     }
 
+    public static void main(String[] args) {
+        BeanUtils.copyProperties(null,new SysOrg());
+    }
     @PostMapping("/insertUser")
     public String insertUser(@RequestBody User user) {
         userService.insertUser(user);
